@@ -34,6 +34,7 @@
   - Supply genome uncompressed.
   - Samplesheet not straight forward. Patient, sample, lane are used differently from AgResearch.
   - Failed jobs stop the complete pipeline (either immediately or after retrying with more resoures (if configured)). Setting this to `ignore` skips retries. Maybe one can via exitcode distinguish between running out of resoures and failing and take appropriate action.
+  - The processes copying results from working to result directory are not tracked in execution_trace. I ran out of diskspace and had to manually check which results had been copied across.
 - Containers
   - Container solutions and multiple layers of symlinks cause friction if not all required folders are bound into the container environment (e.g. symlink location is visible but original file the symlink is pointing o is not). To test, launch the container with `apptainer shell`. Symlinks can be replaced with actual copies as a quick fix.
   - Apptainer is not just Singularity with a new name, the two diverged. Also by default apptainer (within nf-core) uses docker containers, not singularity containers. I saw apptainer struggling and singularity working one the same task.
