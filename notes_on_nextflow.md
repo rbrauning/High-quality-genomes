@@ -62,7 +62,9 @@
 - First bottleneck is *getting data to the compute location*. "Streaming" data directly into analyses is risky because of network isssues. Staging all data for compute takes a long time and produces no results during that step. It is recommended to run the analysis in a way that accepts new samples and produces results continuously.
 - Second bottleneck is *storing raw data, intermediate files, final results*.
 - Compared with compute, storage is of a more permanent nature. When the compute is done, CPUs are idle but files remain.
+- Avoid running out of diskspace as this can impact everything (results, log files, process management) and is 
 - Compute might become expensive as datasets grow large. It's important to *extrapolate costs* (monetary and compute/storage) from a small(ish) test. Choices might have to be made in terms of which samples at what depth (subsampling?) to analyze with what tools. An opportunity to come up with elegant & efficient fit for purpose solutions.
 - Compute might not scale linearly with sample numbers or sample size.
 - It is recommended to keep track of resource usage and have limits/quota in place, especially when using 'infinitely' scalable cloud solutions.
+- How big is too big?
 
